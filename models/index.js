@@ -1,5 +1,4 @@
-import database from "../config/config.js";
-
+import db from '../config/database.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -10,7 +9,7 @@ const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 const basename = path.basename(filename);
 
-const config = database[process.env.ENV];
+const config = db[process.env.ENV];
 
 const sequelize = new Sequelize(
   config.database,

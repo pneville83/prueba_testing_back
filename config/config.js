@@ -1,3 +1,5 @@
+
+
 function runDotEnv() {
   if (process.env.ENV === 'development') {
     import('dotenv').then(dotenv => dotenv.config({ path: '.env' }));
@@ -15,15 +17,17 @@ const config = {
     logging: console.log,
     dialect: 'postgres',
   },
+  
   test: {
-    username: 'postgres',
-    password: 'johnpeter83',
-    database: 'peter_pruebas',
-    host: 'localhost',
-    port: 5432,
+    username: process.env.DB_USER || 'postgres',
+    password: process.env.DB_PASSWORD || 'johnpeter83',
+    database: process.env.DB_NAME || 'peter_pruebas',
+    host: process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || 5432,
     logging: false,
     dialect: 'postgres',
   },
+
   production: {
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
