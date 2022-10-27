@@ -10,10 +10,10 @@ runDotEnv();
 
 const config = {
   development: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
+    username: process.env.DB_USER || 'postgres',
+    password: process.env.DB_PASSWORD || 'johnpeter83',
+    database: process.env.DB_NAME || 'postgres',
+    host: process.env.DB_HOST || 'localhost',
     logging: console.log,
     dialect: 'postgres',
   },
